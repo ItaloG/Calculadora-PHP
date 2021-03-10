@@ -1,0 +1,12 @@
+=====================================
+Desenvolva uma calculadora em PHP.
+
+O programa deve receber dois números.
+
+O usuário deve informar (radio) qual a operação deseja realizar.
+
+Soma, subtração, divisão ou multiplicação.
+
+Informar o resultado na mesma página!
+
+Utilizar o method="POST"
