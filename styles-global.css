@@ -69,35 +69,4 @@ h1 em {
   border-radius: 4px;
 }
 
-.input-group #Soma {
-  padding: 6px 8px;
-  min-width: 30px;
-
-  font-size: 16px;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-}
-.input-group #Divisao {
-  padding: 6px 8px;
-  min-width: 30px;
-
-  font-size: 16px;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-}
-.input-group #Subtracao {
-  padding: 6px 8px;
-  min-width: 30px;
-
-  font-size: 16px;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-}
-.input-group #Multiplicacao {
-  padding: 6px 8px;
-  min-width: 30px;
-  font-size: 16px;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-}
 

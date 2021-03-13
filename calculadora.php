@@ -1,3 +1,31 @@
+<?php
+
+    $numero1 = isset($_POST['numero1']) ? $_POST['numero1'] : NULL;
+    $numero2 = isset($_POST['numero2']) ? $_POST['numero2'] : NULL;
+    $operacao = isset($_POST['operacao']) ? $_POST['operacao'] : NULL;
+
+    switch ($operacao){
+        case '+' :
+            $resultado = $numero1 + $numero2;
+        break;
+        case '-' :
+            $resultado = $numero1 - $numero2;
+        break;
+        case '/' :
+            if($numero2 == 0){
+                $resultado = "O dividendo não pode ser zero";
+            }else{
+                $resultado = $numero1 / $numero2;
+            }
+        break;
+        case '*' :
+            $resultado = $numero1 * $numero2;
+        break;
+        case NULL :
+            $resultado = "Digita e escolha uma opração";
+        break;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,72 +36,40 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <div class="input-group">
     <form method="POST" action="calculadora.php">
-        <label for="primeiroNumero">Primero Número:</label>
-        <input type="number" min="0" name="numero1" id="primeiroNumero" placeholder="Informar o Primeiro Número" require/>
-        
-        <label for="segundoNumero">Segundo  Número:</label>
-        <input type="number" min="0" name="numero2" id="segundoNumero" placeholder="Informar o Segundo Número" require/>
-    
+    <div class="input-group">
+        <label for="numero1">RESULTADO</label>
+        <input type="text" id="resultado" readonly value="<?=$resultado?>"/>
+    </div>
+    <div class="input-group">
+        <label for="numero1">Primero Número:</label>
+        <input type="number"  name="numero1" id="numero1" placeholder="Informar o Primeiro Número" />
+    </div>
+    <div class="input-group">
+        <label for="numero2">Segundo  Número:</label>
+        <input type="number" name="numero2" id="numero2" placeholder="Informar o Segundo Número" />
+    </div>
         <label>Informe a Operação</label>
         <div>
-            <label for="Soma" id="radioOperacoes">Soma:</label>
-
-            <input type="radio" name="operacaoes" id="Soma" value="soma" style="margin-left: -88px;" require/>
+            <input type="radio" name="operacao" id="Soma" value="+" />
+            <label for="Soma" id="radioOperacoes">Soma</label>
         </div>
         <div>
-            <label for="Divisao" id="radioOperacoes">Divisão:</label>
-            <input type="radio" name="operacaoes" id="Divisao" value="divisao" style="margin-left: -97px;" require/>
+            <input type="radio" name="operacao" id="Divisao" value="/" />
+            <label for="Divisao" id="radioOperacoes">Divisão</label>
         </div>
         <div>
-            <label for="Subtracao" id="radioOperacoes">Subtração:</label>
-            <input type="radio" name="operacaoes" id="Subtracao" value="subtracao" style="margin-left: -114px;" require/>
+            <input type="radio" name="operacao" id="Subtracao" value="-" />
+            <label for="Subtracao" id="radioOperacoes">Subtração</label>
         </div>
         <div>
-            <label for="Multiplicacao" id="radioOperacoes">Multiplicação:</label>
-            <input type="radio" name="operacaoes" id="Multiplicacao" value="multiplicacao" style="margin-left: -130px;" require/>
+            <input type="radio" name="operacao" id="Multiplicacao" value="*"/>
+            <label for="Multiplicacao" id="radioOperacoes">Multiplicação</label>
         </div>
-
-        <?php
-
-            $operacao = $_POST["operacaoes"];
-            $numero1 = $_POST["numero1"];
-            $numero2 = $_POST["numero2"];
-
-        ?>
-
-        <?php
-        if($operacao == "soma"){
-            $calculo = number_format($numero1) + number_format($numero2);
-        ?>
-            <h1><?=$calculo?></h1>
-        <?php
-        }else if($operacao == "divisao"){ 
-            $calculo = number_format($numero1) / number_format($numero2);
-        ?>
-        <h1><?=$calculo?></h1>
-
-        <?php
-        }else if($operacao == "subtracao"){ 
-            $calculo = number_format($numero1) - number_format($numero2);
-        ?>
-        <h1><?=$calculo?></h1>
-
-        <?php
-        }else if($operacao == "multiplicacao"){ 
-            $calculo = number_format($numero1) * number_format($numero2);
-        ?>
-        <h1><?=$calculo?></h1>
-        <?php
-        }
-        ?>
-        
 
         <button>Calcular</button>
         <button type="reset">Limpar</button>
         
     </form>
-    </div>
 </body>
 </html>
